@@ -1,0 +1,16 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@ --with=autoreconf --parallel
+
+override_dh_autoreconf:
+	dh_autoreconf autoreconf -- -i
+
+override_dh_auto_test:
+	dh_auto_test -- SKIP_TEST_PRESERVE_SELINUX=1
+
+override_dh_install:
+	dh_install -X.la -Xusr/bin/fadot --fail-missing
+
+override_dh_strip:
+	dh_strip --dbg-package augeas-dbg

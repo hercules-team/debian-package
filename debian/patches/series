@@ -1,0 +1,3 @@
+0001-Install-vim-addons-into-correct-directory.patch
+0002-Skip-tests-that-need-root-privileges-when-fakeroot-h.patch
+0003_Link_pthread.patch

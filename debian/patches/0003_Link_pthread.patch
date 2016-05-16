@@ -1,0 +1,20 @@
+Index: augeas-1.1.0/gnulib/tests/Makefile.am
+===================================================================
+--- augeas-1.1.0.orig/gnulib/tests/Makefile.am	2013-12-19 00:53:26.187799730 +1100
++++ augeas-1.1.0/gnulib/tests/Makefile.am	2013-12-19 00:53:26.183799736 +1100
+@@ -507,6 +507,7 @@
+ 
+ TESTS += test-lock
+ check_PROGRAMS += test-lock
++test_lock_LDFLAGS = -Wl,--no-as-needed
+ test_lock_LDADD = $(LDADD) @LIBMULTITHREAD@ @YIELD_LIB@
+ EXTRA_DIST += test-lock.c
+ 
+@@ -972,6 +973,7 @@
+ TESTS += test-thread_self test-thread_create
+ check_PROGRAMS += test-thread_self test-thread_create
+ test_thread_self_LDADD = $(LDADD) @LIBTHREAD@
++test_thread_create_LDFLAGS = -Wl,--no-as-needed
+ test_thread_create_LDADD = $(LDADD) @LIBMULTITHREAD@
+ EXTRA_DIST += test-thread_self.c test-thread_create.c macros.h
+ 
