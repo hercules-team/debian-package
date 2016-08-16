@@ -1,3 +1,128 @@
+2016-08-05  David Lutterkort  <lutter@watzmann.net>
+
+	man/augtool.pod: clarify the description of --load-file and load-file
+
+2016-08-05  David Lutterkort  <lutter@watzmann.net>
+
+	* src/pathx.c: make numbers in path expressions 64 bit integers
+	Previously, they were whatever 'int' was, which might be too small, for
+	example to handle timestamps. With making them int64_t, it is now possible
+	to find files that have changed since a certain point in time with
+
+	  match /augeas/files//*[mtime][int(mtime) >= TIMESTAMP]
+
+	where TIMESTAMP is in seconds since the epoch
+
+2016-08-05  Loren Gordon  <loren@fleet-it.com>
+
+	Uses spaces between tokens instead of tabs for pam files
+	pam.d(5) man page states: "The format of each rule is a space
+	separated collection of tokens..." Previsouly, pam.aug used
+	`Util.del_ws_tab` to insert tabs as a token separator. This patch
+	modifies pamconf.aug and pam.aug to use `Sep.space`, which
+	uses a space as a separator instead.
+
+	Fixes #236
+
+2016-08-05  Kaarle Ritvanen  <kaarle.ritvanen@datakunkku.fi>
+
+	Shellvars: include lbu.conf
+	Alpine Linux Local Backup Utility
+
+2016-08-05  Omer Katz  <omer.drow@gmail.com>
+
+	Added nginx locations for homebrew installed nginx.
+
+2016-08-04  g-coder  <garima.g@samsung.com>
+
+	NO_VA_END
+	Function 'va_end' was not called before internal.c:55 and internal.c:64 inside function 'pathjoin'.
+	Added 'va_end(ap)' before return statement.
+
+2016-07-21  g-coder  <garima.g@samsung.com>
+
+	DEREF_OF_NULL
+	Return value of a function 'add_state' is dereferenced at fa.c:2776 without checking.
+	Added check on return value.
+
+2016-07-11  Raphaël Pinson  <raphael.pinson@camptocamp.com>
+
+	Update NEWS and AUTHORS
+
+2016-07-11  Josef Reidinger  <jreidinger@suse.cz>
+
+	Ntp: fix restrict to allow also -4 and also fix save/store ability (#386)
+	* fix restrict to allow also -4 and also fix save/store ability
+	* use backward compatible ip flags
+
+2016-07-03  Raphaël Pinson  <raphael.pinson@camptocamp.com>
+
+	Update NEWS
+
+2016-07-03  Raphaël Pinson  <raphael.pinson@camptocamp.com>
+
+	Add aug_load_file to load individual files
+	API:
+
+	  - Add aug_load_file() API entry to load an individual file
+
+	Augtool:
+
+	  - Add -l|--load-file option
+	  - Add load-file command
+
+	Internal:
+
+	  - change transform_load() signature to take a FILE filter
+	  - expose filter_matches() in transform.h
+
+2016-06-29  Raphaël Pinson  <raphael.pinson@camptocamp.com>
+
+	Add /etc/profile and /etc/byobu to Shellvars.lns
+
+2016-06-22  Dominic Cleal  <dominic@cleal.org>
+
+	Httpd: follow line continuations in comments
+
+2016-06-16  Raphaël Pinson  <raphael.pinson@camptocamp.com>
+
+	Update NEWS and AUTHORS
+
+2016-06-16  Anton Baranov  <abaranov@linuxfoundation.org>
+
+	Add lens to parse postfix password maps
+
+2016-06-13  Raphaël Pinson  <raphael.pinson@camptocamp.com>
+
+	Update NEWS
+
+2016-06-13  Craig Miskell  <craig@catalyst.net.nz>
+
+	Support for rsyslog RainerScript syntax
+	Specifically configuration objects per http://www.rsyslog.com/doc/v8-stable/rainerscript/configuration_objects.html
+
+2016-06-13  Raphaël Pinson  <raphael.pinson@camptocamp.com>
+
+	Update AUTHORS and NEWS
+
+2016-06-09  Craig Miskell  <craig@catalyst.net.nz>
+
+	Recent ntp.conf allows for 'pool' instead of 'server' et al
+
+2016-05-16  Raphaël Pinson  <raphael.pinson@camptocamp.com>
+
+	Update AUTHORS & NEWS
+
+2016-05-16  Robert Moucha  <robert.moucha@gooddata.com>
+
+	Add allow_writeable_chroot boolead option to vsftpd lens
+	* available since version 2.3.5 of vsftpd
+	* not well documented, yet widely used
+
+2016-05-16  Raphaël Pinson  <raphael.pinson@camptocamp.com>
+
+	It's already 2016
+
 2016-05-11  David Lutterkort  <lutter@watzmann.net>
 
 	Version 1.5.0
