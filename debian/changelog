@@ -1,3 +1,9 @@
+augeas (1.6.0-0ubuntu1) yakkety; urgency=medium
+
+  * New upstream release.
+
+ -- Raphaël Pinson <raphink@ubuntu.com>  Tue, 16 Aug 2016 09:26:07 +0200
+
 augeas (1.5.0-0ubuntu1) yakkety; urgency=medium
 
   * New upstream release
