@@ -1,0 +1,25 @@
+From d454d7dceb2613b861db6d2a8724bf47360466f7 Mon Sep 17 00:00:00 2001
+From: Michael Wodniok <michi@noorganization.org>
+Date: Thu, 18 Aug 2016 14:16:09 +0200
+Subject: [PATCH] Reflect Ubuntu 16.04 location of php.ini (#399)
+
+php.ini has moved with upgrade from PHP5 to PHP7 (included in Ubuntu 16.04).
+---
+ lenses/php.aug | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/lenses/php.aug b/lenses/php.aug
+index 768c1a4..fa5bec5 100644
+--- a/lenses/php.aug
++++ b/lenses/php.aug
+@@ -47,6 +47,7 @@ let record_anon = [ label ".anon" . ( entry | empty )+ ]
+ let lns    = record_anon? . record*
+ 
+ let filter = (incl "/etc/php*/*/*.ini")
++             . (incl "/etc/php/*/*/*.ini")
+              . (incl "/etc/php.ini")
+              . (incl "/etc/php.d/*.ini")
+              (* PHPFPM Support *)
+-- 
+2.7.4
+

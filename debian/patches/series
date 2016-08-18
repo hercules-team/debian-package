@@ -1,3 +1,4 @@
 0001-Install-vim-addons-into-correct-directory.patch
 0002-Skip-tests-that-need-root-privileges-when-fakeroot-h.patch
 0003_Link_pthread.patch
+0004-Reflect-Ubuntu-16.04-location-of-php.ini-399.patch
